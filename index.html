@@ -12,13 +12,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text" id ="pin-generate-input">
+                    <input class="form-control text-center" type="text" id ="pin-generate-input" >
                     <button class="generate-btn" id="pin-switch">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width" >
-                    <input class="form-control" type="text" id = "pin-input" >
+                    <input class="form-control font-black text-center" type="text" id = "pin-input" placeholder="4-digit">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row" >
@@ -42,7 +42,7 @@
                                 <div class=" btn button" id = 'cancel'>C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn" id = 'submitBtn'>Submit</button>
+                                <button type="submit" class="submit-btn" id = 'submitBtn' onclick="btnCount" >Submit</button>
                                 <p class="action-left" id = "action-left">3 try left</p>
                             </div>
                     </div>
@@ -131,15 +131,48 @@
            var secondInput = document.getElementById('pin-input').value
            var positive =document.getElementById('notify-positive')
            var negative = document.getElementById('notify-negative')
-           if(pinValue == secondInput){
+          
+          
+           if(pinValue == ''){
+            negative.style.display="block"
+             positive.style.display = "none"}
+           
+            else if(pinValue == secondInput){
                positive.style.display = "block"
                negative.style.display="none"
+               var action = document.getElementById('action-left')
+               action.innerText = ' 3 try left'
+
+               
            }
+
            else {
                 negative.style.display="block"
                 positive.style.display = "none"
+             
+                
            }
         })
+        var count = 0;
+        var countButton = document.getElementById("submitBtn");
+        var action = document.getElementById('action-left')
+        countButton.onclick = function(){
+        count++;
+        if(count == 1  ){
+            action.innerText = ' 2 try left'
+
+        }
+        if (count == 2 ){
+            action.innerText = ' 1 try left'
+        }
+        if (count == 3 ){
+            action.innerText = ' 0 try left'
+            document.getElementById("submitBtn").disabled= true;
+        }
+
+        }
+       
+       
           
     </script>
 </body>
