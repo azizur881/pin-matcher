@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="pin-generator half-width">
                     <input class="form-control text-center" type="text" id ="pin-generate-input" >
-                    <button class="generate-btn" id="pin-switch-btn">Generate Pin</button>
+                    <button class="generate-btn" id="pin-switch-btn" onclick="random()" >Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -22,23 +22,23 @@
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row" >
-                              <div class=" btn button" id = 'seven' onclick=" btnCounter('seven')">7</div>
-                              <div class=" btn button" id = 'eight' onclick=" btnCounter('eight')">8</div>
-                              <div class=" btn button" id = 'nine'onclick=" btnCounter('nine')">9</div>
+                              <div class=" btn button" id = 'seven' onclick=" numberDisplay('seven')">7</div>
+                              <div class=" btn button" id = 'eight' onclick=" numberDisplay('eight')">8</div>
+                              <div class=" btn button" id = 'nine'onclick=" numberDisplay('nine')">9</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class=" btn button" id = 'four' onclick=" btnCounter('four')">4</div>
-                              <div class=" btn button" id ='five' onclick=" btnCounter('five')">5</div>
-                              <div class=" btn button" id ='six' onclick=" btnCounter('six')">6</div>
+                              <div class=" btn button" id = 'four' onclick=" numberDisplay('four')">4</div>
+                              <div class=" btn button" id ='five' onclick=" numberDisplay('five')">5</div>
+                              <div class=" btn button" id ='six' onclick=" numberDisplay('six')">6</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class=" btn button" id ='one' onclick=" btnCounter('one')">1</div>
-                              <div class=" btn button" id ='two' onclick=" btnCounter('two')">2</div>
-                              <div class=" btn button" id ='three' onclick=" btnCounter('three')">3</div>
+                              <div class=" btn button" id ='one' onclick=" numberDisplay('one')">1</div>
+                              <div class=" btn button" id ='two' onclick=" numberDisplay('two')">2</div>
+                              <div class=" btn button" id ='three' onclick=" numberDisplay('three')">3</div>
                             </div>
                             <div class="calc-button-row">
                                 <div class=" btn button" id = 'delete' onclick="forDeleteBtn('delete') "><</div>
-                                <div class=" btn button" id ='zero' onclick=" btnCounter('zero')">0</div>
+                                <div class=" btn button" id ='zero' onclick=" numberDisplay('zero')">0</div>
                                 <div class=" btn button" id = 'cancel' onclick="forClearBtn('cancel')">C</div>
                             </div>
                             <div>
@@ -58,26 +58,51 @@
 
     <script>
 
-
-    function btnCounter(number){
-           document.getElementById('pin-input').value += document.getElementById(number).innerText 
-       }    
+                //pin button function create that call by onclick 
+    function numberDisplay(number){
+           document.getElementById('pin-input').value += document.getElementById(number).innerText }   
     function forClearBtn(name){
-           document.getElementById('pin-input').value = '' 
-       }
+           document.getElementById('pin-input').value = '' }
     function forDeleteBtn(name){
-           document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)
-       }              
-                  // pin-generation-button //
+           document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)}            
+                 
+                 
+                  // pin-generation-button function//
+    function random(){
+            var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
+            document.getElementById('pin-generate-input').value = randomPinGenerate}
        
+                        // submit button function call
+        document.getElementById('submitBtn').addEventListener('click',function(){
+        submitBtn()
+        })
+    
        
-        var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
-         document.getElementById('pin-switch-btn').addEventListener('click',function(){
-           document.getElementById('pin-generate-input').value = randomPinGenerate
-           
-        }) 
-        submitButton =document.getElementById('submitBtn').addEventListener('click',function(){
-            var pinValue = document.getElementById('pin-generate-input').value
+              //  submission button Click count for show action left
+        var count = 0;
+         var countButton = document.getElementById("submitBtn");
+        var action = document.getElementById('action-left')
+        countButton.onclick = function(){
+        count++;
+        if(count == 1  ){
+            action.innerText = ' 2 try left'
+
+        }
+        if (count == 2 ){
+            action.innerText = ' 1 try left'
+        }
+        if (count == 3 ){
+            action.innerText = ' 0 try left'
+            document.getElementById("submitBtn").disabled= true;
+            document.getElementById("submitBtn").style.backgroundColor="red"
+        }
+     }       
+        
+       
+
+                //submit button function form
+     function submitBtn(number){
+        var pinValue = document.getElementById('pin-generate-input').value
            var secondInput = document.getElementById('pin-input').value
            var positive =document.getElementById('notify-positive')
            var negative = document.getElementById('notify-negative')
@@ -98,27 +123,8 @@
                 negative.style.display="block"
                 positive.style.display = "none"    
            }
-        })
-    
-       
-              //  submission button Click count 
-        var count = 0;
-         var countButton = document.getElementById("submitBtn");
-        var action = document.getElementById('action-left')
-        countButton.onclick = function(){
-        count++;
-        if(count == 1  ){
-            action.innerText = ' 2 try left'
-
-        }
-        if (count == 2 ){
-            action.innerText = ' 1 try left'
-        }
-        if (count == 3 ){
-            action.innerText = ' 0 try left'
-            document.getElementById("submitBtn").disabled= true;
-        }
-        }       
+       }
+            
     </script>
 </body>
 </html>
