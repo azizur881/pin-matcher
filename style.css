@@ -129,7 +129,7 @@ color: #E0B612;
     
 }
 .submit-btn:hover{
-    background-image: linear-gradient(rgb(13, 108, 196) , rgba(95, 93, 207, 0.842));
+    background-image: linear-gradient(rgb(188, 194, 201) , rgba(95, 93, 207, 0.842));
     color:black;
     transform: scale(1.05);
     

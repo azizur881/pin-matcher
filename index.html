@@ -22,24 +22,24 @@
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row" >
-                              <div class=" btn button" id = 'seven' >7</div>
-                              <div class=" btn button" id = 'eight' >8</div>
-                              <div class=" btn button" id = 'nine'>9</div>
+                              <div class=" btn button" id = 'seven' onclick=" btnCounter('seven')">7</div>
+                              <div class=" btn button" id = 'eight' onclick=" btnCounter('eight')">8</div>
+                              <div class=" btn button" id = 'nine'onclick=" btnCounter('nine')">9</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class=" btn button" id = 'four'>4</div>
-                              <div class=" btn button" id ='five'>5</div>
-                              <div class=" btn button" id ='six'>6</div>
+                              <div class=" btn button" id = 'four' onclick=" btnCounter('four')">4</div>
+                              <div class=" btn button" id ='five' onclick=" btnCounter('five')">5</div>
+                              <div class=" btn button" id ='six' onclick=" btnCounter('six')">6</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class=" btn button" id ='one'>1</div>
-                              <div class=" btn button" id ='two'>2</div>
-                              <div class=" btn button" id ='three'>3</div>
+                              <div class=" btn button" id ='one' onclick=" btnCounter('one')">1</div>
+                              <div class=" btn button" id ='two' onclick=" btnCounter('two')">2</div>
+                              <div class=" btn button" id ='three' onclick=" btnCounter('three')">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class=" btn button" id = 'delete'><</div>
-                                <div class=" btn button" id ='zero'>0</div>
-                                <div class=" btn button" id = 'cancel'>C</div>
+                                <div class=" btn button" id = 'delete' onclick="forDeleteBtn('delete') "><</div>
+                                <div class=" btn button" id ='zero' onclick=" btnCounter('zero')">0</div>
+                                <div class=" btn button" id = 'cancel' onclick="forClearBtn('cancel')">C</div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn" id = 'submitBtn' onclick="btnCount" >Submit</button>
@@ -57,66 +57,18 @@
 
 
     <script>
-      
-        document.getElementById('seven').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('seven').innerText })
 
-           document.getElementById('eight').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('eight').innerText })
 
-           document.getElementById('nine').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('nine').innerText })
-
-           document.getElementById('four').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('four').innerText })
-
-           document.getElementById('five').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('five').innerText })
-
-           document.getElementById('six').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('six').innerText 
-        })
-
-        document.getElementById('one').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('one').innerText 
-        })
-
-        document.getElementById('two').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('two').innerText 
-        })
-
-        document.getElementById('three').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('three').innerText 
-        })
-
-        document.getElementById('zero').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
-           document.getElementById('pin-input').value += document.getElementById('zero').innerText 
-        })
-
-        document.getElementById('cancel').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
+    function btnCounter(number){
+           document.getElementById('pin-input').value += document.getElementById(number).innerText 
+       }    
+    function forClearBtn(name){
            document.getElementById('pin-input').value = '' 
-        })
-
-        document.getElementById('delete').addEventListener('click',function(){
-           var seven = document.getElementById('pin-input').value
+       }
+    function forDeleteBtn(name){
            document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)
-        })
-
-
-                
-                
-                  // pin-generation-button 
+       }              
+                  // pin-generation-button //
        
        
         var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
@@ -140,19 +92,18 @@
                negative.style.display="none"
                var action = document.getElementById('action-left')
                action.innerText = ' 3 try left'
-
-               
            }
 
            else {
                 negative.style.display="block"
-                positive.style.display = "none"
-             
-                
+                positive.style.display = "none"    
            }
         })
+    
+       
+              //  submission button Click count 
         var count = 0;
-        var countButton = document.getElementById("submitBtn");
+         var countButton = document.getElementById("submitBtn");
         var action = document.getElementById('action-left')
         countButton.onclick = function(){
         count++;
@@ -167,11 +118,7 @@
             action.innerText = ' 0 try left'
             document.getElementById("submitBtn").disabled= true;
         }
-
-        }
-       
-       
-          
+        }       
     </script>
 </body>
 </html>
