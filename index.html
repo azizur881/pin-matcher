@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="pin-generator half-width">
                     <input class="form-control text-center" type="text" id ="pin-generate-input" >
-                    <button class="generate-btn" id="pin-switch">Generate Pin</button>
+                    <button class="generate-btn" id="pin-switch-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -119,14 +119,12 @@
                   // pin-generation-button 
        
        
-        var pinGenerate = Math.floor(1000 + Math.random() * 9000)
-         document.getElementById('pin-switch').addEventListener('click',function(){
-           var seven = document.getElementById('pin-generate-input').value
-           document.getElementById('pin-generate-input').value = pinGenerate
+        var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
+         document.getElementById('pin-switch-btn').addEventListener('click',function(){
+           document.getElementById('pin-generate-input').value = randomPinGenerate
            
         }) 
         submitButton =document.getElementById('submitBtn').addEventListener('click',function(){
-
             var pinValue = document.getElementById('pin-generate-input').value
            var secondInput = document.getElementById('pin-input').value
            var positive =document.getElementById('notify-positive')
