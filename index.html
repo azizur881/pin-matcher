@@ -24,7 +24,7 @@
                             <div class="calc-button-row" >
                               <div class=" btn button" id = 'seven' onclick=" numberDisplay('seven')">7</div>
                               <div class=" btn button" id = 'eight' onclick=" numberDisplay('eight')">8</div>
-                              <div class=" btn button" id = 'nine'onclick=" numberDisplay('nine')">9</div>
+                              <div class=" btn button" id = 'nine' onclick=" numberDisplay('nine')">9</div>
                             </div>
                             <div class="calc-button-row">
                               <div class=" btn button" id = 'four' onclick=" numberDisplay('four')">4</div>
@@ -69,7 +69,7 @@
                     
                     // pin-generation-button function//
         function random(){
-            var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
+           const randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
             document.getElementById('pin-generate-input').value = randomPinGenerate}
        
                         // submit button function call
@@ -79,7 +79,7 @@
     
        
               //  submission button Click count for show action left
-            var count = 0;
+            let count = 0;
             var countButton = document.getElementById("submitBtn");
             var action = document.getElementById('action-left')
             countButton.onclick = function(){
@@ -101,15 +101,15 @@
        
 
                 //submit button function form
-     function submitBtn(number){
-            var pinValue = document.getElementById('pin-generate-input').value
-           var secondInput = document.getElementById('pin-input').value
-           var positive =document.getElementById('notify-positive')
-           var negative = document.getElementById('notify-negative')
+        function submitBtn(number){
+            const pinValue = document.getElementById('pin-generate-input').value
+            const secondInput = document.getElementById('pin-input').value
+            const positive =document.getElementById('notify-positive')
+            const negative = document.getElementById('notify-negative')
           
           
            if(pinValue == ''){
-            negative.style.display="block"
+             negative.style.display="block"
              positive.style.display = "none"}
            
             else if(pinValue == secondInput){
