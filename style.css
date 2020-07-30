@@ -26,10 +26,13 @@ body {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    transition:  1s;
 }
 .generate-btn:focus{
     outline: none;
     box-shadow: none;
+    
+    
 }
 
 input[type='text']{
@@ -75,6 +78,7 @@ vertical-align: middle;
 margin-right: -4px;
 border-radius: 10px;
 cursor: pointer;
+transition: .30s;
 }
 .blink-me {
 color: #E0B612;
@@ -86,6 +90,7 @@ color: #E0B612;
     border-radius: 5px;
     background: #495BC3;
     color: #fff;
+    transition:  1s;
 }
 .notify {
     color: #fff;
@@ -111,4 +116,22 @@ color: #E0B612;
 #notify-negative{
     display: none;
 
+}
+.button:hover{
+    background-color: #9ca1be;
+    transform: scale(1.05);
+}
+.generate-btn:hover{
+    background-image: linear-gradient(rgb(60, 185, 243) , rgb(50, 235, 241));
+    color:black;
+    transform: scale(1.15);
+    
+    
+}
+.submit-btn:hover{
+    background-image: linear-gradient(rgb(188, 194, 201) , rgba(95, 93, 207, 0.842));
+    color:black;
+    transform: scale(1.05);
+    
+    
 }
