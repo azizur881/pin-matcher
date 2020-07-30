@@ -59,50 +59,50 @@
     <script>
 
                 //pin button function create that call by onclick 
-    function numberDisplay(number){
-           document.getElementById('pin-input').value += document.getElementById(number).innerText }   
-    function forClearBtn(name){
-           document.getElementById('pin-input').value = '' }
-    function forDeleteBtn(name){
-           document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)}            
-                 
-                 
-                  // pin-generation-button function//
-    function random(){
+        function numberDisplay(number){
+            document.getElementById('pin-input').value += document.getElementById(number).innerText }   
+        function forClearBtn(name){
+            document.getElementById('pin-input').value = '' }
+        function forDeleteBtn(name){
+            document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)}            
+                    
+                    
+                    // pin-generation-button function//
+        function random(){
             var randomPinGenerate = Math.floor(1000 + Math.random() * 9000)
             document.getElementById('pin-generate-input').value = randomPinGenerate}
        
                         // submit button function call
-        document.getElementById('submitBtn').addEventListener('click',function(){
-        submitBtn()
-        })
+            document.getElementById('submitBtn').addEventListener('click',function(){
+            submitBtn()
+            })
     
        
               //  submission button Click count for show action left
-        var count = 0;
-         var countButton = document.getElementById("submitBtn");
-        var action = document.getElementById('action-left')
-        countButton.onclick = function(){
-        count++;
-        if(count == 1  ){
-            action.innerText = ' 2 try left'
+            var count = 0;
+            var countButton = document.getElementById("submitBtn");
+            var action = document.getElementById('action-left')
+            countButton.onclick = function(){
+            count++;
+            if(count == 1  ){
+                action.innerText = ' 2 try left'
 
-        }
-        if (count == 2 ){
-            action.innerText = ' 1 try left'
-        }
-        if (count == 3 ){
-            action.innerText = ' 0 try left'
-            document.getElementById("submitBtn").disabled= true;
-            document.getElementById("submitBtn").style.backgroundColor="red"
-        }
+            }
+           else if (count == 2 ){
+                action.innerText = ' 1 try left'
+            }
+          else  if (count == 3 ){
+                action.innerText = ' 0 try left'
+                document.getElementById("submitBtn").disabled= true;
+                document.getElementById("submitBtn").style.backgroundColor="red"
+            }
      }       
         
        
 
                 //submit button function form
      function submitBtn(number){
-        var pinValue = document.getElementById('pin-generate-input').value
+            var pinValue = document.getElementById('pin-generate-input').value
            var secondInput = document.getElementById('pin-input').value
            var positive =document.getElementById('notify-positive')
            var negative = document.getElementById('notify-negative')
@@ -121,7 +121,8 @@
 
            else {
                 negative.style.display="block"
-                positive.style.display = "none"    
+                positive.style.display = "none"  
+                  
            }
        }
             
