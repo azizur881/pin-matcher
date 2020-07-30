@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="pin-generator half-width">
                     <input class="form-control text-center" type="text" id ="pin-generate-input" >
-                    <button class="generate-btn" id="pin-switch-btn" onclick="random()" >Generate Pin</button>
+                    <button class="generate-btn" id="pin-switch-btn" onclick="random ()" >Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -64,7 +64,7 @@
         function forClearBtn(name){
             document.getElementById('pin-input').value = '' }
         function forDeleteBtn(name){
-            document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1)}            
+            document.getElementById('pin-input').value = document.getElementById('pin-input').value.slice(0,-1) }            
                     
                     
                     // pin-generation-button function//
@@ -94,7 +94,7 @@
           else  if (count == 3 ){
                 action.innerText = ' 0 try left'
                 document.getElementById("submitBtn").disabled= true;
-                document.getElementById("submitBtn").style.backgroundColor="red"
+                document.getElementById("submitBtn").style.backgroundColor= "red"
             }
      }       
         
@@ -114,13 +114,13 @@
            
             else if(pinValue == secondInput){
                positive.style.display = "block"
-               negative.style.display="none"
+               negative.style.display= "none"
                var action = document.getElementById('action-left')
-               action.innerText = ' 3 try left'
+               action.innerText = '3 try left'
            }
 
            else {
-                negative.style.display="block"
+                negative.style.display= "block"
                 positive.style.display = "none"  
                   
            }
